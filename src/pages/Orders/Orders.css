@@ -1,0 +1,173 @@
+/* frontend/admin/src/pages/Orders/Orders.css */
+
+.order.add {
+    padding: 20px;
+    max-width: 1000px; /* Max width for desktop */
+    margin: 50px auto;
+    font-family: 'Inter', sans-serif;
+    color: #333;
+}
+
+.order h3 {
+    text-align: left;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.5em; /* Larger heading */
+    font-weight: 700; /* Bolder heading */
+}
+
+.order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between order cards */
+}
+
+.order-item {
+    background-color: #fff;
+    border: 1px solid #f0f0f0; /* Very light border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px 20px; /* Adjusted padding */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+    
+    /* Grid layout for the order item to match the reference image */
+    display: grid;
+    /* Columns: Icon | Food/Address Details (col1) | Items Count (col2) | Amount (col3) | Status Dropdown (col4) */
+    grid-template-columns: 0.5fr 3fr 1fr 1fr 1.5fr; /* Adjusted proportions for visual match */
+    align-items: center;
+    gap: 20px; /* Gap between grid columns */
+    font-size: 14px; /* Overall font size for card content */
+    color: #505050; /* Text color */
+    
+    transition: box-shadow 0.2s ease-in-out; /* Smooth transition for hover */
+}
+
+.order-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* More pronounced shadow on hover */
+}
+
+.order-item img.parcel-icon {
+    width: 35px; /* Icon size */
+    height: 35px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.order-item p {
+    margin: 0; /* Remove default paragraph margins */
+}
+
+/* Styling for the container of food, address, and phone */
+.order-item-details-col1 {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 2px; /* Tighter space between lines */
+    min-width: 180px; /* Ensure it has enough space */
+}
+
+.order-item-food {
+    font-weight: 500;
+    color: #444;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.order-item-address,
+.order-item-phone {
+    color: #666;
+    font-size: 0.9em;
+    white-space: nowrap; /* Keep address/phone on one line */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.order-item-count-col,
+.order-item-amount-col {
+    text-align: center; /* Center align these columns */
+    font-weight: 600; /* Bolder for amount */
+}
+
+.order-item-amount-col p {
+    color: #333; /* Darker color for amount */
+}
+
+
+/* Status Dropdown Styling */
+.order-item-status-dropdown-col {
+    text-align: right; /* Align dropdown to the right within its column */
+}
+.order-item select {
+    padding:10px;
+    border: 1px solid #E65100;
+    background-color:#ffe8e4;
+    width:max(10vw,120px);
+    outline: none;
+    
+
+    /* Removed justify-self: end; from here as text-align on parent div is better */
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .order-item {
+        grid-template-columns: 0.5fr 2.5fr 1fr 1fr 1.5fr; /* Adjust columns for slightly smaller screens */
+        gap: 15px;
+        padding: 15px;
+    }
+    .order-item-food {
+        font-size: 0.9em;
+    }
+    .order-item-amount-col p, .order-item-count-col p {
+        font-size: 0.85em;
+    }
+    .order-item select {
+        font-size: 0.8em;
+        padding: 6px 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    .order h3 {
+        font-size: 2em;
+    }
+    .order-item {
+        grid-template-columns: 1fr; /* Stack all items vertically */
+        align-items: flex-start;
+        padding: 15px;
+        gap: 10px;
+    }
+    .order-item img.parcel-icon {
+        margin-bottom: 10px;
+    }
+    .order-item-details-col1,
+    .order-item-count-col,
+    .order-item-amount-col,
+    .order-item-status-dropdown-col {
+        width: 100%;
+        text-align: left; /* Align text to left when stacked */
+    }
+    .order-item-count-col p, .order-item-amount-col p {
+        font-weight: normal;
+    }
+    .order-item-status-dropdown-col select {
+        justify-self: start; /* Align to start when stacked vertically */
+    }
+}
+
+@media (max-width: 480px) {
+    .order h3 {
+        font-size: 1.8em;
+    }
+    .order-item {
+        padding: 10px;
+        font-size: 0.8em;
+    }
+    .parcel-icon {
+        width: 30px;
+        height: 30px;
+    }
+    .order-item select {
+        padding: 6px 8px;
+        font-size: 0.8em;
+    }
+}
