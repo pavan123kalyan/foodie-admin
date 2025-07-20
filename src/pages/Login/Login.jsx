@@ -11,7 +11,7 @@
       const [username, setUsername] = useState('');
       const [password, setPassword] = useState('');
 
-      const backendUrl = "http://localhost:4000"; // Adjust this to your backend URL
+      const backendUrl = "https://foodie-backend-t7kv.onrender.com"; // Adjust this to your backend URL
 
       const handleLogin = async (e) => {
         e.preventDefault();
